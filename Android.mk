@@ -22,28 +22,28 @@ LOCAL_PATH := $(call my-dir)
 
 # aidl on its own doesn't need the framework, but testing native/java
 # compatibility introduces java dependencies.
-ifndef BRILLO
+#ifndef BRILLO
 
-include $(CLEAR_VARS)
-LOCAL_PACKAGE_NAME := aidl_test_services
-LOCAL_PRIVATE_PLATFORM_APIS := true
+#include $(CLEAR_VARS)
+#LOCAL_PACKAGE_NAME := aidl_test_services
+#LOCAL_PRIVATE_PLATFORM_APIS := true
 # Turn off Java optimization tools to speed up our test iterations.
-LOCAL_PROGUARD_ENABLED := disabled
-LOCAL_DEX_PREOPT := false
-LOCAL_CERTIFICATE := platform
-LOCAL_MANIFEST_FILE := tests/java_app/AndroidManifest.xml
-LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/tests/java_app/resources
-LOCAL_SRC_FILES := \
-    tests/android/aidl/tests/INamedCallback.aidl \
-    tests/android/aidl/tests/ITestService.aidl \
-    tests/java_app/src/android/aidl/tests/NullableTests.java \
-    tests/java_app/src/android/aidl/tests/SimpleParcelable.java \
-    tests/java_app/src/android/aidl/tests/TestFailException.java \
-    tests/java_app/src/android/aidl/tests/TestLogger.java \
-    tests/java_app/src/android/aidl/tests/TestServiceClient.java
-LOCAL_AIDL_INCLUDES := \
-    system/tools/aidl/tests/ \
-    frameworks/native/aidl/binder
-include $(BUILD_PACKAGE)
+#LOCAL_PROGUARD_ENABLED := disabled
+#LOCAL_DEX_PREOPT := false
+#LOCAL_CERTIFICATE := platform
+#LOCAL_MANIFEST_FILE := tests/java_app/AndroidManifest.xml
+#LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/tests/java_app/resources
+#LOCAL_SRC_FILES := \
+#    tests/android/aidl/tests/INamedCallback.aidl \
+#    tests/android/aidl/tests/ITestService.aidl \
+#    tests/java_app/src/android/aidl/tests/NullableTests.java \
+#    tests/java_app/src/android/aidl/tests/SimpleParcelable.java \
+#    tests/java_app/src/android/aidl/tests/TestFailException.java \
+#    tests/java_app/src/android/aidl/tests/TestLogger.java \
+#    tests/java_app/src/android/aidl/tests/TestServiceClient.java
+#LOCAL_AIDL_INCLUDES := \
+#    system/tools/aidl/tests/ \
+#    frameworks/native/aidl/binder
+#include $(BUILD_PACKAGE)
 
-endif  # not defined BRILLO
+#endif  # not defined BRILLO
